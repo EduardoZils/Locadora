@@ -12,7 +12,7 @@ namespace LocadoraAPI.Mappings
     {
         public void Configure(EntityTypeBuilder<Locacao> entity)
         {
-            entity.HasKey(e => new { e.IdLocacao, e.IdVeiculo, e.IdMarca, e.IdCliente });
+            entity.HasKey(e => new { e.IdLocacao, e.IdVeiculo, e.IdCliente });
 
             entity.ToTable("locacao");
 
@@ -21,8 +21,6 @@ namespace LocadoraAPI.Mappings
                 .ValueGeneratedOnAdd();
 
             entity.Property(e => e.IdVeiculo).HasColumnName("id_veiculo");
-
-            entity.Property(e => e.IdMarca).HasColumnName("id_marca");
 
             entity.Property(e => e.IdCliente).HasColumnName("id_cliente");
 
@@ -42,9 +40,9 @@ namespace LocadoraAPI.Mappings
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("cliente_locacao_fk");
 
-            entity.HasOne(d => d.Id)
+            entity.HasOne(d => d.IdVeiculoNavigation)
                 .WithMany(p => p.Locacao)
-                .HasForeignKey(d => new { d.IdVeiculo, d.IdMarca })
+                .HasForeignKey(d => d.IdVeiculo)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("veiculo_locacao_fk");
         }

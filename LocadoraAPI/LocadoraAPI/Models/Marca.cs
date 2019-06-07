@@ -8,16 +8,13 @@ namespace LocadoraAPI.Models
     {
         public Marca()
         {
-            Veiculo = new HashSet<Veiculo>();
+            Modelo = new HashSet<Modelo>();
         }
 
         public int IdMarca { get; set; }
         public string DsMarca { get; set; }
-        public int IdModelo { get; set; }
-
-        public Modelo IdModeloNavigation { get; set; }
 
         [JsonIgnore]
-        public ICollection<Veiculo> Veiculo { get; set; }
+        public ICollection<Modelo> Modelo { get; set; }
     }
 }

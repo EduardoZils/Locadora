@@ -40,9 +40,8 @@ namespace LocadoraAPI.Models
             modelBuilder.ApplyConfiguration(new ModeloMap());
             modelBuilder.ApplyConfiguration(new VeiculoMap());
 
-
             modelBuilder.HasSequence("marca_id_marca_seq_1");
-            modelBuilder.HasSequence("modelo_id_modelo_seq_1");
+            modelBuilder.HasSequence("modelo_id_modelo_seq_1_1");
         }
     }
 }
