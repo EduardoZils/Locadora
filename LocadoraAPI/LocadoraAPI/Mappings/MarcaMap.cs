@@ -24,14 +24,6 @@ namespace LocadoraAPI.Mappings
                 .IsRequired()
                 .HasColumnName("ds_marca")
                 .HasColumnType("character varying");
-
-            entity.Property(e => e.IdModelo).HasColumnName("id_modelo");
-
-            entity.HasOne(d => d.IdModeloNavigation)
-                .WithMany(p => p.Marca)
-                .HasForeignKey(d => d.IdModelo)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("modelo_marca_fk");
         }
     }
 }

@@ -6,9 +6,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LocacaoComponent } from './cadastros/locacao/locacao.component';
-import { ClienteComponent } from './cadastros/cliente/cliente.component';
-import { VeiculoComponent } from './cadastros/veiculo/veiculo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatInputModule, MatRadioModule, MatButtonModule, 
@@ -20,9 +17,6 @@ import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.c
 @NgModule({
   declarations: [
     AppComponent,
-    LocacaoComponent,
-    ClienteComponent,
-    VeiculoComponent,
     LocadoraComponent,
     LocadoraListComponent
   ],
