@@ -78,7 +78,7 @@ namespace LocadoraAPI.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(locacao);
         }
 
         // POST: api/Locacaos
