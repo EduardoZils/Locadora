@@ -15,7 +15,6 @@ import { MatInputModule, MatRadioModule, MatButtonModule,
   MatTableModule, MatIconModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatSelectModule, MatDialogModule, MatProgressSpinnerModule } from '@angular/material';
   import { DatePipe } from '@angular/common';
 import { LocadoraComponent } from './cadastros/locadora/locadora.component';
-import { NgComponent } from './cadastros/ng/ng.component';
 import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.component';
 
 @NgModule({
@@ -25,7 +24,6 @@ import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.c
     ClienteComponent,
     VeiculoComponent,
     LocadoraComponent,
-    NgComponent,
     LocadoraListComponent
   ],
   imports: [
@@ -35,6 +33,7 @@ import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.c
     FormsModule,
 
     MatInputModule,
+    MatDialogModule,
     MatRadioModule,
     MatButtonModule, 
     MatTableModule,
@@ -45,7 +44,7 @@ import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.c
     MatExpansionModule,
     MatSelectModule,
     BrowserAnimationsModule,
-    MatDialogModule,
+    
   ],
   providers: [HttpClient, DatePipe],
   bootstrap: [AppComponent]
