@@ -27,6 +27,7 @@ import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.c
     FormsModule,
 
     MatInputModule,
+    MatDialogModule,
     MatRadioModule,
     MatButtonModule, 
     MatTableModule,
@@ -37,7 +38,7 @@ import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.c
     MatExpansionModule,
     MatSelectModule,
     BrowserAnimationsModule,
-    MatDialogModule,
+    
   ],
   providers: [HttpClient, DatePipe],
   bootstrap: [AppComponent]
