@@ -1,9 +1,31 @@
 import { Injectable } from '@angular/core';
+import { PromiseState } from 'q';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/Observable/throw';
+
 
 @Injectable({
   providedIn: 'root'
 })
+@Injectable()
 export class BaseService {
 
   constructor() { }
+
+  protected serviceError(error: Response | any) {
+    let errMsg: string;
+
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    }else{
+      errMsg = error.message ? error.message : error.toSngtring();
+    }
+    return Observable.throw(error);
+  }
 }
