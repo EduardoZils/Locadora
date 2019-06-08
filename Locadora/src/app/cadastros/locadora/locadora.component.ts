@@ -28,6 +28,7 @@ export class LocadoraComponent implements OnInit {
   veiculoModel: Veiculo = new Veiculo();
   locacao: Locacao;
   locacaoModel: Locacao = new Locacao();
+  edit: boolean = false;
 
   constructor(private clienteService: ClienteService,
     private marcaService: MarcaService,
