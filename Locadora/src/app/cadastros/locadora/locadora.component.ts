@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../model/cliente'
+import { Marca } from '../model/marca'
+import { Modelo } from '../model/modelo'
+import { Veiculo } from '../model/veiculo'
+import { Locacao } from '../model/locacao'
 import { ClienteService } from '../../shared/dialog/cliente.service'
 import { MarcaService } from '../../shared/dialog/marca.service'
 import { ModeloService } from '../../shared/dialog/modelo.service'
@@ -14,16 +18,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LocadoraComponent implements OnInit {
 
-  cliente = Cliente;
-  clienteModel = Cliente : new Cliente()
-  marca = Marca;
-  marcaModel = Marca : new Marca();
-  modelo = Modelo;
-  modeloModel = Modelo : new Modelo();
-  veiculo = Veiculo;
-  veiculoModel = Veiculo : new Veiculo();
-  locacao = Locacao;
-  locacaoModel = Locacao : new Locacao();
+  cliente: Cliente;
+  clienteModel: Cliente = new Cliente()
+  marca: Marca;
+  marcaModel: Marca = new Marca();
+  modelo: Modelo;
+  modeloModel: Modelo = new Modelo();
+  veiculo: Veiculo;
+  veiculoModel: Veiculo = new Veiculo();
+  locacao: Locacao;
+  locacaoModel: Locacao = new Locacao();
 
   constructor(private clienteService: ClienteService,
     private marcaService: MarcaService,
