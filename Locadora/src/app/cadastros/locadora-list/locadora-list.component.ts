@@ -10,6 +10,5 @@ export class LocadoraListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
+  }  
 }
