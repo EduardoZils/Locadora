@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { Cliente } from '../../cadastros/model/cliente';
 import { environment } from "../../../environments/environment";
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BaseService } from '../base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClienteService extends BaseService{
+export class ClienteService extends BaseService {
 
   constructor(private http: HttpClient) {
     super();
