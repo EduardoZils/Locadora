@@ -26,3 +26,17 @@ C:\ProjectsVisualStudio\ProjetoLocadora\Locadora\LocadoraAPI\LocadoraAPI\obj\Deb
 C:\ProjectsVisualStudio\ProjetoLocadora\Locadora\LocadoraAPI\LocadoraAPI\obj\Debug\netcoreapp2.1\LocadoraAPI.RazorTargetAssemblyInfo.cache
 C:\ProjectsVisualStudio\ProjetoLocadora\Locadora\LocadoraAPI\LocadoraAPI\obj\Debug\netcoreapp2.1\LocadoraAPI.dll
 C:\ProjectsVisualStudio\ProjetoLocadora\Locadora\LocadoraAPI\LocadoraAPI\obj\Debug\netcoreapp2.1\LocadoraAPI.pdb
+C:\Users\eduar\source\repos\Locadora\LocadoraAPI\LocadoraAPI\bin\Debug\netcoreapp2.1\LocadoraAPI.deps.json
+C:\Users\eduar\source\repos\Locadora\LocadoraAPI\LocadoraAPI\bin\Debug\netcoreapp2.1\LocadoraAPI.runtimeconfig.json
+C:\Users\eduar\source\repos\Locadora\LocadoraAPI\LocadoraAPI\bin\Debug\netcoreapp2.1\LocadoraAPI.runtimeconfig.dev.json
+C:\Users\eduar\source\repos\Locadora\LocadoraAPI\LocadoraAPI\bin\Debug\netcoreapp2.1\LocadoraAPI.dll
+C:\Users\eduar\source\repos\Locadora\LocadoraAPI\LocadoraAPI\bin\Debug\netcoreapp2.1\LocadoraAPI.pdb
+C:\Users\eduar\source\repos\Locadora\LocadoraAPI\LocadoraAPI\obj\Debug\netcoreapp2.1\LocadoraAPI.csprojAssemblyReference.cache
+C:\Users\eduar\source\repos\Locadora\LocadoraAPI\LocadoraAPI\obj\Debug\netcoreapp2.1\LocadoraAPI.csproj.CoreCompileInputs.cache
+C:\Users\eduar\source\repos\Locadora\LocadoraAPI\LocadoraAPI\obj\Debug\netcoreapp2.1\LocadoraAPI.RazorAssemblyInfo.cache
+C:\Users\eduar\source\repos\Locadora\LocadoraAPI\LocadoraAPI\obj\Debug\netcoreapp2.1\LocadoraAPI.RazorAssemblyInfo.cs
+C:\Users\eduar\source\repos\Locadora\LocadoraAPI\LocadoraAPI\obj\Debug\netcoreapp2.1\LocadoraAPI.AssemblyInfoInputs.cache
+C:\Users\eduar\source\repos\Locadora\LocadoraAPI\LocadoraAPI\obj\Debug\netcoreapp2.1\LocadoraAPI.AssemblyInfo.cs
+C:\Users\eduar\source\repos\Locadora\LocadoraAPI\LocadoraAPI\obj\Debug\netcoreapp2.1\LocadoraAPI.RazorTargetAssemblyInfo.cache
+C:\Users\eduar\source\repos\Locadora\LocadoraAPI\LocadoraAPI\obj\Debug\netcoreapp2.1\LocadoraAPI.dll
+C:\Users\eduar\source\repos\Locadora\LocadoraAPI\LocadoraAPI\obj\Debug\netcoreapp2.1\LocadoraAPI.pdb
