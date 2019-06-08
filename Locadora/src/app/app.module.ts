@@ -10,7 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatInputModule, MatRadioModule, MatButtonModule, 
   MatTableModule, MatIconModule, MatPaginatorModule, MatSortModule, MatExpansionModule, MatSelectModule, MatDialogModule, MatProgressSpinnerModule } from '@angular/material';
-  import { DatePipe } from '@angular/common';
+
+import { DatePipe } from '@angular/common';
 import { LocadoraComponent } from './cadastros/locadora/locadora.component';
 import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.component';
 

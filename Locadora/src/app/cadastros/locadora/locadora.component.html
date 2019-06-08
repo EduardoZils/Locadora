@@ -1,14 +1,117 @@
-<div class="row"></div>
-<div class="row">
-  <h2>Locação Automotiva</h2>
+<div class="titulo">
+  <h3>
+    Calcula Frete
+  </h3>
 </div>
 <div class="row">
-  <h2>Marquinos Carrões</h2>
+  <!--PARA TER UM ESPAÇO ENTRE OS EXPANSION-PANEL-->
+  <div class="col s12 m12 l12"></div>
 </div>
 <div class="row">
-  <div class="col s12 m12 l12">
-    <mat-form-field>
-      <input matInput placeholder="Descricao" type="text" [(ngModel)]="containerModel.descricao">
-    </mat-form-field>
+  <div class="col s12">
+    <mat-accordion>
+      <mat-expansion-panel name="panelCadastroCliente">
+        <!--ESTADO-->
+        <mat-expansion-panel-header>
+          <mat-panel-title>Cadastro de Cliente</mat-panel-title>
+          <mat-panel-description>Cliente</mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="row">
+          <div class="col s12 m2 l2">
+            <mat-form-field>
+              <input matInput type="number" placeholder="Código" required />
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <div class="col s12 m2 l2">
+              <mat-form-field>
+                <input matInput type="text" placeholder="UF" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m4 l4">
+            <mat-form-field>
+              <input matInput type="text" placeholder="Descrição"  required />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m4 l4">
+            <mat-form-field>
+              <input matInput type="number" placeholder="valorFrete" required />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row footer-btn">
+          <!--BOTÃO SALVAR ESTADO-->
+          <div class="button-row col s12">
+            <button mat-raised-button color="green" (click)="salvarCliente()">Salvar</button>
+          </div>
+        </div>
+        <!--Aplicar Filtros-->
+        <div class="row heading">
+          <div class="col s12">
+            <h2 class="title">Lista de Clientes</h2>
+            <div class="heading__tools">
+              <div class="search">
+                <mat-form-field>
+                  <mat-icon svgIcon="slidenav-search"></mat-icon>
+                  <input matInput id="pesquisarId" name="pesquisar" placeholder="Pesquisar"
+                    (keyup)="aplicarFiltroEstado($event.target.value)">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!--TABLE ESTADO-->
+          <div class="col s12 m12 l12">
+            <mat-table [dataSource]="dataSourceEstado" matSort (matSortChange)="sortData($event)"
+              class="mat-elevation-z8">
+              <ng-container matColumnDef="actionsColumn">
+                <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <button mat-icon-button>
+                    <mat-icon class="link_action" svgIcon="form-trash" matTooltip="Excluir"
+                      (click)="excluirEstado(element.estadoId)"></mat-icon>
+                  </button>
+                  <button mat-icon-button>
+                    <mat-icon class="link_action" svgIcon="form-edit" matTooltip="Editar"
+                      (click)="editarEstado(element.estadoId)">
+                    </mat-icon>
+                  </button>
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="estadoId">
+                <!--CÓDIGO-->
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Código </mat-header-cell>>
+                <mat-cell *matCellDef="let element"> {{element.estadoId}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="uf">
+                <!--UF-->
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Uf </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.uf}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="descricao">
+                <!--DESCRIÇÃO-->
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Descrição </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.descricao}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="valorFrete">
+                <!--DESCRIÇÃO-->
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Valor Frete </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.valorFrete}} </mat-cell>
+              </ng-container>
+              <mat-header-row *matHeaderRowDef="displayColumnsEstado"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayColumnsEstado;"></mat-row>
+            </mat-table>
+            <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButton></mat-paginator>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
   </div>
 </div>
