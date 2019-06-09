@@ -1,3 +1,5 @@
+import { Modelo } from './modelo';
+
 export class Veiculo {
     idVeiculo: number;
     dsVeiculo: string;
@@ -6,5 +8,5 @@ export class Veiculo {
     anoVeiculo: number;
     precoVeiculo: Float32Array; //no banco é double
     alugado: boolean;
-    idModelo: number;
+    modelo: Modelo;
 }

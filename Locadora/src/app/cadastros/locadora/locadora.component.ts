@@ -49,7 +49,34 @@ export class LocadoraComponent implements OnInit {
   ngOnInit() {
     this.cliente = new Cliente();
     this.marca = new Marca();
+    this.modelo = new Modelo();
+    this.veiculo = new Veiculo();
 
+  }
+
+  salvarVeiculo(){
+    if (this.edit) {
+      console.log("Atualiza Veiculo")
+      console.log(this.veiculoModel)
+      this.veiculoService.update(this.veiculoModel).subscribe(sucesso => {
+        if (sucesso != null)
+          console.log("sucesso");
+          this.veiculoModel = sucesso;
+      },
+        error => {
+          console.log(error);
+        });
+    } else {
+      console.log("salvar Cliente")
+      console.log(this.veiculoModel)
+      this.veiculoService.save(this.veiculoModel).subscribe(sucesso => {
+        if (sucesso != null)
+          console.log("sucesso");
+      },
+        error => {
+          console.log(error);
+        });
+    }
   }
 
 
@@ -84,6 +111,7 @@ export class LocadoraComponent implements OnInit {
       this.marcaService.update(this.marcaModel).subscribe(sucesso => {
         if (sucesso != null)
           console.log("sucesso");
+          this.marcaModel = sucesso;
       },
         error => {
           console.log(error);
@@ -94,6 +122,7 @@ export class LocadoraComponent implements OnInit {
       this.marcaService.save(this.marcaModel).subscribe(sucesso => {
         if (sucesso != null)
           console.log("sucesso");
+          this.marcaModel = sucesso;
       },
         error => {
           console.log(error);
@@ -101,23 +130,21 @@ export class LocadoraComponent implements OnInit {
     }
   }
 
-  atualizarMarcaListBox() {
+  atualizarMarcaSpinner() {
     this.dataSourceMarca = new Array<Marca>();
     console.log("Chamou atualizarEstadoListBox codigo -------> " + this.marcaSelId);
     let id = this.marcaSelId;
     let marcaSelLocal;
-    this.marcaList.forEach(item => {
-      if (item.idMarca == id) {
+    this.marcaService.listAll().subscribe(item => {
+      if (item.marcaId == id) {
         marcaSelLocal = item;
         alert("Propriedade da pessoa selecionada " + item.modeloList);
       }
     });
     this.marcaSel = marcaSelLocal;
   }
+  
 
-  atualizaListBoxMarca2(){
-    
-  }
 
   salvarModelo() {
     if (this.edit) {
