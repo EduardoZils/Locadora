@@ -38,8 +38,8 @@ import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.c
     MatSortModule,
     MatExpansionModule,
     MatSelectModule,
-    BrowserAnimationsModule,
-    
+    BrowserAnimationsModule
+  
   ],
   providers: [HttpClient, DatePipe],
   bootstrap: [AppComponent]
