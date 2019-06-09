@@ -38,6 +38,8 @@ export class LocadoraComponent implements OnInit {
     public activatedRoute: ActivatedRoute,
     public router: Router) { }
 
+    displayColumnsCliente: string[] = ['actionsColumn', 'idcliente', 'nmcliente', 'cnh', 'endereco', 'telefone'];
+
   ngOnInit() {
     this.cliente = new Cliente();
     this.cliente = new Cliente();
@@ -47,7 +49,6 @@ export class LocadoraComponent implements OnInit {
 
 
   salvarCliente() {
-
     if (this.edit) {
       console.log("Atualiza Cliente")
       console.log(this.clienteModel)

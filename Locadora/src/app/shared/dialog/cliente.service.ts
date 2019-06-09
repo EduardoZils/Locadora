@@ -17,29 +17,29 @@ export class ClienteService extends BaseService {
    save(cliente: Cliente) : Observable<any>{
     //primeiro o parametro = URL
     //segundo parametro = BODY - corpo da requisição
-    return this.http.post(environment.urlWebAPI + "Locadora/", cliente)
+    return this.http.post(environment.urlWebAPI + "Clientes/", cliente)
     .catch((error : any) => Observable.throw(error.error))
   }
 
   listAll() : Observable<any>{
     //primeiro o parametro = URL
     //segundo parametro = BODY - corpo da requisição
-    return this.http.get(environment.urlWebAPI + "Containers/")
+    return this.http.get(environment.urlWebAPI + "Clientes/")
     .catch((error : any) => Observable.throw(error.error))
   }
 
   getById(id: number) : Observable<any>{
-    return this.http.get(environment.urlWebAPI + "Containers/" + id)
+    return this.http.get(environment.urlWebAPI + "Clientes/" + id)
     .catch((error : any) => Observable.throw(error.error))
   }
 
   delete(id: number) : Observable<any>{
-    return this.http.delete(environment.urlWebAPI + "Containers/" + id)
+    return this.http.delete(environment.urlWebAPI + "Clientes/" + id)
     .catch((error : any) => Observable.throw(error.error))
   }
 
   edit(cliente : Cliente) : Observable<any> {
-    return this.http.put(environment.urlWebAPI + "Containers/" + cliente.idcliente, cliente)
+    return this.http.put(environment.urlWebAPI + "Clientes/" + cliente.idCliente, cliente)
     .catch((error : any) => Observable.throw(error.error))
   }
 }

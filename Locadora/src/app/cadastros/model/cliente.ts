@@ -1,5 +1,5 @@
 export class Cliente {
-    idcliente: number;
+    idCliente: number;
     nmCliente: string;
     cnh: string;
     endereco: string;
