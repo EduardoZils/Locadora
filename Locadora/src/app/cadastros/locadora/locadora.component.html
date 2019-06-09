@@ -7,6 +7,9 @@
   <!--PARA TER UM ESPAÇO ENTRE OS EXPANSION-PANEL-->
   <div class="col s12 m12 l12"></div>
 </div>
+
+
+<!--CLIENTE-->
 <div class="row">
   <div class="col s12">
     <mat-accordion>
@@ -62,3 +65,41 @@
     </mat-accordion>
   </div>
 </div>
+
+<!--MARCA-->
+<div class="row">
+  <div class="col s12">
+    <mat-accordion>
+      <mat-expansion-panel name="panelCadastroMarca">
+        <!--ESTADO-->
+        <mat-expansion-panel-header>
+          <mat-panel-title>Cadastro de Marca</mat-panel-title>
+          <mat-panel-description>Marca</mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="row">
+          <div class="col s12 m2 l2">
+            <mat-form-field>
+              <input matInput type="number" placeholder="Código" [(ngModel)]="marcaModel.idMarca" required />
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <div class="col s12 m2 l2">
+              <mat-form-field>
+                <input matInput type="text" placeholder="Descrição" [(ngModel)]="marcaModel.dsMarca" required />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row footer-btn">
+          <!--BOTÃO SALVAR ESTADO-->
+          <div class="button-row col s12">
+            <button mat-raised-button color="green" (click)="salvarMarca()">Salvar</button>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+
+
+

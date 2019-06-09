@@ -39,11 +39,11 @@ export class LocadoraComponent implements OnInit {
     public router: Router) { }
 
     displayColumnsCliente: string[] = ['actionsColumn', 'idcliente', 'nmcliente', 'cnh', 'endereco', 'telefone'];
+    
 
   ngOnInit() {
     this.cliente = new Cliente();
-    this.cliente = new Cliente();
-    this.cliente = new Cliente();
+    this.marca = new Marca();
 
   }
 
@@ -63,6 +63,30 @@ export class LocadoraComponent implements OnInit {
       console.log("salvar Cliente")
       console.log(this.clienteModel)
       this.clienteService.save(this.clienteModel).subscribe(sucesso => {
+        if (sucesso != null)
+          console.log("sucesso");
+      },
+        error => {
+          console.log(error);
+        });
+    }
+  }
+
+  salvarMarca() {
+    if (this.edit) {
+      console.log("Atualiza Marca")
+      console.log(this.marcaModel)
+      this.marcaService.update(this.marcaModel).subscribe(sucesso => {
+        if (sucesso != null)
+          console.log("sucesso");
+      },
+        error => {
+          console.log(error);
+        });
+    } else {
+      console.log("salvar Marca")
+      console.log(this.marcaModel)
+      this.marcaService.save(this.marcaModel).subscribe(sucesso => {
         if (sucesso != null)
           console.log("sucesso");
       },
