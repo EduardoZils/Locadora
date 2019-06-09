@@ -30,6 +30,11 @@ export class LocadoraComponent implements OnInit {
   locacaoModel: Locacao = new Locacao();
   edit: boolean = false;
 
+  public dataSourceMarca: any;
+  public marcaSel: Marca = new Marca();
+  public marcaSelId: number;  
+  public marcaList: Array<Marca>;
+
   constructor(private clienteService: ClienteService,
     private marcaService: MarcaService,
     private modeloService: ModeloService,
@@ -87,6 +92,48 @@ export class LocadoraComponent implements OnInit {
       console.log("salvar Marca")
       console.log(this.marcaModel)
       this.marcaService.save(this.marcaModel).subscribe(sucesso => {
+        if (sucesso != null)
+          console.log("sucesso");
+      },
+        error => {
+          console.log(error);
+        });
+    }
+  }
+
+  atualizarMarcaListBox() {
+    this.dataSourceMarca = new Array<Marca>();
+    console.log("Chamou atualizarEstadoListBox codigo -------> " + this.marcaSelId);
+    let id = this.marcaSelId;
+    let marcaSelLocal;
+    this.marcaList.forEach(item => {
+      if (item.idMarca == id) {
+        marcaSelLocal = item;
+        alert("Propriedade da pessoa selecionada " + item.modeloList);
+      }
+    });
+    this.marcaSel = marcaSelLocal;
+  }
+
+  atualizaListBoxMarca2(){
+    
+  }
+
+  salvarModelo() {
+    if (this.edit) {
+      console.log("Atualiza Modelo")
+      console.log(this.modeloModel)
+      this.modeloService.update(this.modeloModel).subscribe(sucesso => {
+        if (sucesso != null)
+          console.log("sucesso");
+      },
+        error => {
+          console.log(error);
+        });
+    } else {
+      console.log("salvar Marca")
+      console.log(this.modeloModel)
+      this.modeloService.save(this.modeloModel).subscribe(sucesso => {
         if (sucesso != null)
           console.log("sucesso");
       },
