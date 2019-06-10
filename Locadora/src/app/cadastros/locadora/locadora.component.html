@@ -117,6 +117,7 @@
               <input matInput type="number" placeholder="Código" [(ngModel)]="modeloModel.idModelo" required />
             </mat-form-field>
           </div>
+
           <div class="row">
             <div class="col s12 m2 l2">
               <mat-form-field>
@@ -124,16 +125,17 @@
               </mat-form-field>
             </div>
           </div>
-          <div class="col s12 m6 l6">
+
+          <div class="col s12 m4 l4">
             <mat-form-field>
-              <mat-label>Marca</mat-label>
-              <mat-select name="marca" [(ngModel)]="modeloModel.marca" (click)="atualizarMarcaSpinner()">
-                <mat-option *ngFor="let marca of marcas" [value]="marca.descricao">
-                  {{marca.dsMarca}}
+              <mat-select placeholder="Marca" [(ngModel)]="modeloModel.marca">
+                <mat-option *ngFor="let marca of this.marcaList" [value]="marca">
+                  {{marca.idMarca + " - " + marca.dsMarca}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
           </div>
+
           
         </div>
         <div class="row footer-btn">
@@ -206,22 +208,13 @@
               </mat-form-field>
             </div>
           </div>
-          <div class="col s12 m6 l6">
-            <mat-form-field>
-              <mat-label>Marca</mat-label>
-              <mat-select name="marca" [(ngModel)]="modeloModel.marca" (click)="atualizarMarcaSpinner()">
-                <mat-option *ngFor="let marca of marcas" [value]="marca.descricao">
-                  {{marca.dsMarca}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
+
           
         </div>
         <div class="row footer-btn">
           <!--BOTÃO SALVAR ESTADO-->
           <div class="button-row col s12">
-            <button mat-raised-button color="green" (click)="salvarModelo()">Salvar</button>
+            <button mat-raised-button color="green" (click)="salvarVeiculo()">Salvar</button>
           </div>
         </div>
       </mat-expansion-panel>

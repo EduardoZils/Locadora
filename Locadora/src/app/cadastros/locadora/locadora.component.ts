@@ -47,10 +47,12 @@ export class LocadoraComponent implements OnInit {
     
 
   ngOnInit() {
-    this.cliente = new Cliente();
-    this.marca = new Marca();
-    this.modelo = new Modelo();
-    this.veiculo = new Veiculo();
+    this.clienteModel = new Cliente();
+    this.marcaModel = new Marca();
+    this.modeloModel = new Modelo();
+    this.veiculoModel = new Veiculo();
+    this.atualizarMarcaSelect();
+    
 
   }
 
@@ -67,11 +69,12 @@ export class LocadoraComponent implements OnInit {
           console.log(error);
         });
     } else {
-      console.log("salvar Cliente")
+      console.log("salvar Veiculo")
       console.log(this.veiculoModel)
       this.veiculoService.save(this.veiculoModel).subscribe(sucesso => {
         if (sucesso != null)
           console.log("sucesso");
+          this.veiculoModel = sucesso;
       },
         error => {
           console.log(error);
@@ -107,22 +110,19 @@ export class LocadoraComponent implements OnInit {
   salvarMarca() {
     if (this.edit) {
       console.log("Atualiza Marca")
-      console.log(this.marcaModel)
-      this.marcaService.update(this.marcaModel).subscribe(sucesso => {
+      console.log(this.marca)
+      this.marcaService.update(this.marca).subscribe(sucesso => {
         if (sucesso != null)
           console.log("sucesso");
-          this.marcaModel = sucesso;
+          this.marca = sucesso;
       },
         error => {
           console.log(error);
         });
     } else {
-      console.log("salvar Marca")
-      console.log(this.marcaModel)
-      this.marcaService.save(this.marcaModel).subscribe(sucesso => {
+      this.marcaService.save(this.marca).subscribe(sucesso => {
         if (sucesso != null)
-          console.log("sucesso");
-          this.marcaModel = sucesso;
+          console.log(sucesso);
       },
         error => {
           console.log(error);
@@ -130,19 +130,17 @@ export class LocadoraComponent implements OnInit {
     }
   }
 
-  atualizarMarcaSpinner() {
-    this.dataSourceMarca = new Array<Marca>();
-    console.log("Chamou atualizarEstadoListBox codigo -------> " + this.marcaSelId);
-    let id = this.marcaSelId;
-    let marcaSelLocal;
-    this.marcaService.listAll().subscribe(item => {
-      if (item.marcaId == id) {
-        marcaSelLocal = item;
-        alert("Propriedade da pessoa selecionada " + item.modeloList);
-      }
+  atualizarMarcaSelect() {
+    this.marcaService.listAll().subscribe(sucesso => {
+        this.marcaList = sucesso;
+        console.log("Sucesso" + sucesso);
+      
+    },
+    error => {
+
     });
-    this.marcaSel = marcaSelLocal;
   }
+  
   
 
 
