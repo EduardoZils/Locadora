@@ -34,13 +34,13 @@ namespace LocadoraAPI.Mappings
 
             entity.Property(e => e.Pagamento).HasColumnName("pagamento");
 
-            entity.HasOne(d => d.IdClienteNavigation)
+            entity.HasOne(d => d.Cliente)
                 .WithMany(p => p.Locacao)
                 .HasForeignKey(d => d.IdCliente)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("cliente_locacao_fk");
 
-            entity.HasOne(d => d.IdVeiculoNavigation)
+            entity.HasOne(d => d.Veiculo)
                 .WithMany(p => p.Locacao)
                 .HasForeignKey(d => d.IdVeiculo)
                 .OnDelete(DeleteBehavior.ClientSetNull)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace LocadoraAPI.Models
@@ -12,7 +13,9 @@ namespace LocadoraAPI.Models
         public DateTime DtDevolucao { get; set; }
         public bool Pagamento { get; set; }
 
-        public Cliente IdClienteNavigation { get; set; }
-        public Veiculo IdVeiculoNavigation { get; set; }
+        [JsonIgnore]
+        public Cliente Cliente { get; set; }
+        [JsonIgnore]
+        public Veiculo Veiculo { get; set; }
     }
 }

@@ -128,8 +128,8 @@
 
           <div class="col s12 m4 l4">
             <mat-form-field>
-              <mat-select placeholder="Marca" [(ngModel)]="modeloModel.marca">
-                <mat-option *ngFor="let marca of this.marcaList" [value]="marca">
+              <mat-select placeholder="Marca" [(ngModel)]="modeloModel.idMarca">
+                <mat-option *ngFor="let marca of this.marcaList" [value]="marca.idMarca">
                   {{marca.idMarca + " - " + marca.dsMarca}}
                 </mat-option>
               </mat-select>

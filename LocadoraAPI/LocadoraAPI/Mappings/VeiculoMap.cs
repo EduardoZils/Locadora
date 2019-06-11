@@ -41,7 +41,7 @@ namespace LocadoraAPI.Mappings
 
             entity.Property(e => e.PrecoVeiculo).HasColumnName("preco_veiculo");
 
-            entity.HasOne(d => d.IdModeloNavigation)
+            entity.HasOne(d => d.Modelo)
                 .WithMany(p => p.Veiculo)
                 .HasForeignKey(d => d.IdModelo)
                 .OnDelete(DeleteBehavior.ClientSetNull)

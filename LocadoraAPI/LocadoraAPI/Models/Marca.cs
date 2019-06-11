@@ -14,6 +14,8 @@ namespace LocadoraAPI.Models
         public int IdMarca { get; set; }
         public string DsMarca { get; set; }
 
+
+        [JsonIgnore]
         public ICollection<Modelo> Modelo { get; set; }
     }
 }
