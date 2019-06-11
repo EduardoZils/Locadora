@@ -11,6 +11,7 @@ import { VeiculoService } from '../../shared/dialog/veiculo.service'
 import { LocacaoService } from '../../shared/dialog/locacao.service'
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-locadora',
   templateUrl: './locadora.component.html',
@@ -35,6 +36,8 @@ export class LocadoraComponent implements OnInit {
   public marcaSelId: number;  
   public marcaList: Array<Marca>;
 
+  public modeloList: Array<Modelo>;
+
   constructor(private clienteService: ClienteService,
     private marcaService: MarcaService,
     private modeloService: ModeloService,
@@ -52,9 +55,12 @@ export class LocadoraComponent implements OnInit {
     this.modeloModel = new Modelo();
     this.veiculoModel = new Veiculo();
     this.atualizarMarcaSelect();
+    this.atualizarModeloSelect();
+
     
 
   }
+
 
   salvarVeiculo(){
     if (this.edit) {
@@ -108,7 +114,6 @@ export class LocadoraComponent implements OnInit {
   }
 
   salvarMarca() {
-    this.atualizarMarcaSelect();
     if (this.edit) {
       console.log("Atualiza Marca")
       console.log(this.marcaModel)
@@ -139,9 +144,19 @@ export class LocadoraComponent implements OnInit {
       console.log(error);
     });
   }
+
+  atualizarModeloSelect(){
+    this.modeloService.listAll().subscribe(sucesso => {
+      this.modeloList = sucesso;
+  },
+  error => {
+    console.log(error);
+  });
+  }
   
 
   salvarModelo() {
+    this.atualizarModeloSelect();
     if (this.edit) {
       console.log("Atualiza Modelo")
       console.log(this.modeloModel)

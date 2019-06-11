@@ -128,7 +128,7 @@
 
           <div class="col s12 m4 l4">
             <mat-form-field>
-              <mat-select placeholder="Marca" [(ngModel)]="modeloModel.idMarca">
+              <mat-select placeholder="Marca" [(ngModel)]="modeloModel.idMarca" (SelectionChange)="atualizarMarcaSelect()">
                 <mat-option *ngFor="let marca of this.marcaList" [value]="marca.idMarca">
                   {{marca.idMarca + " - " + marca.dsMarca}}
                 </mat-option>
@@ -136,14 +136,15 @@
             </mat-form-field>
           </div>
 
-          
         </div>
+
         <div class="row footer-btn">
           <!--BOTÃO SALVAR ESTADO-->
           <div class="button-row col s12">
             <button mat-raised-button color="green" (click)="salvarModelo()">Salvar</button>
           </div>
         </div>
+
       </mat-expansion-panel>
     </mat-accordion>
   </div>
@@ -169,7 +170,7 @@
           <div class="row">
             <div class="col s12 m2 l2">
               <mat-form-field>
-                <input matInput type="text" placeholder="Descrição" [(ngModel)]="veiculoModel.dsVeiculo" required />
+                <input matInput type="text" placeholder="Detalhes" [(ngModel)]="veiculoModel.dsVeiculo" required />
               </mat-form-field>
             </div>
           </div>
@@ -180,6 +181,7 @@
               </mat-form-field>
             </div>
           </div>
+          
           <div class="row">
             <div class="col s12 m2 l2">
               <mat-form-field>
@@ -190,14 +192,14 @@
           <div class="row">
             <div class="col s12 m2 l2">
               <mat-form-field>
-                <input matInput type="text" placeholder="Ano" [(ngModel)]="veiculoModel.anoVeiculo" required />
+                <input matInput type="number" placeholder="Ano" [(ngModel)]="veiculoModel.anoVeiculo" required />
               </mat-form-field>
             </div>
           </div>
           <div class="row">
             <div class="col s12 m2 l2">
               <mat-form-field>
-                <input matInput type="text" placeholder="Preço" [(ngModel)]="veiculoModel.precoVeiculo" required />
+                <input matInput type="number" placeholder="Preço" [(ngModel)]="veiculoModel.precoVeiculo" required />
               </mat-form-field>
             </div>
           </div>
@@ -208,8 +210,17 @@
               </mat-form-field>
             </div>
           </div>
+          <div class="col s12 m4 l4">
+            <mat-form-field>
+              <mat-select placeholder="Modelo" [(ngModel)]="veiculoModel.idModelo">
+                <mat-option *ngFor="let modelo of this.modeloList" [value]="modelo.idModelo">
+                  {{modelo.idModelo + " - " + modelo.dsModelo}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
 
-          
+            
         </div>
         <div class="row footer-btn">
           <!--BOTÃO SALVAR ESTADO-->

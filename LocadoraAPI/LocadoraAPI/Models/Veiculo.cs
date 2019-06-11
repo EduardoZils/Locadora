@@ -20,6 +20,7 @@ namespace LocadoraAPI.Models
         public bool? Alugado { get; set; }
         public int IdModelo { get; set; }
 
+        [JsonIgnore]
         public Modelo Modelo { get; set; }
 
         [JsonIgnore]
