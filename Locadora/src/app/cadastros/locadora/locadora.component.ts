@@ -140,8 +140,6 @@ export class LocadoraComponent implements OnInit {
     });
   }
   
-  
-
 
   salvarModelo() {
     if (this.edit) {
@@ -155,11 +153,11 @@ export class LocadoraComponent implements OnInit {
           console.log(error);
         });
     } else {
-      console.log("salvar Marca")
+      console.log("salvar Modelo")
       console.log(this.modeloModel)
       this.modeloService.save(this.modeloModel).subscribe(sucesso => {
         if (sucesso != null)
-          console.log("sucesso");
+          console.log(sucesso);
       },
         error => {
           console.log(error);
