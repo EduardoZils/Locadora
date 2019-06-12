@@ -1,3 +1,127 @@
-<p>
-  locadora-list works!
-</p>
+<div class="row">
+  <div class="col s12">
+    <mat-accordion>
+      <mat-expansion-panel name="panelCadastroCliente">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Lista de Cliente</mat-panel-title>
+          <mat-panel-description>Edição e Exclusão</mat-panel-description>
+        </mat-expansion-panel-header>
+
+
+        <!--Tabela-->
+        <div class="row">
+          <div class="col s12 m12 l12">
+            <mat-table #table [dataSource]="dataSourceCliente" matSort class="table-striped">
+              <ng-container matColumnDef="actionsColumn">
+                <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <button mat-icon-button>
+                    <mat-icon class="link_action" matTooltip="Delete" (click)="deleteConfirmation(element.idCliente)">
+                      delete</mat-icon>
+                  </button>
+                  <button mat-icon-button>
+                    <mat-icon class="link_action" matTooltip="edit" (click)="update(element.idCliente)">edit
+                    </mat-icon>
+                  </button>
+                </mat-cell>
+              </ng-container>
+
+              <!-- Codigo -->
+              <ng-container matColumnDef="nome">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.nmCliente}} </mat-cell>>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="cnh">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> CNH </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.cnh}} </mat-cell>
+              </ng-container>
+
+              <!-- Weight Column -->
+              <ng-container matColumnDef="endereco">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Endereço </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.endereco}} </mat-cell>
+              </ng-container>
+
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="telefone">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Telefone </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.telefone}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumnsCliente"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumnsCliente;"></mat-row>
+            </mat-table>
+            <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+            </mat-paginator>
+          </div>
+        </div>
+
+        <div class="row footer-btn">
+          <div class="button-row col s12">
+            <button mat-raised-button color="green" (click)="salvar()">Salvar</button>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col s12">
+    <mat-accordion>
+      <mat-expansion-panel name="panelCadastroCliente">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Lista de Marca</mat-panel-title>
+          <mat-panel-description>Edição e Exclusão</mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="row footer-btn">
+          <div class="button-row col s12">
+            <button mat-raised-button color="green" (click)="salvar()">Salvar</button>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12">
+    <mat-accordion>
+      <mat-expansion-panel name="panelCadastroCliente">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Lista de Modelo</mat-panel-title>
+          <mat-panel-description>Edição e Exclusão</mat-panel-description>
+        </mat-expansion-panel-header>
+
+
+
+        <div class="row footer-btn">
+          <div class="button-row col s12">
+            <button mat-raised-button color="green" (click)="salvar()">Salvar</button>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12">
+    <mat-accordion>
+      <mat-expansion-panel name="panelCadastroCliente">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Lista de Veiculo</mat-panel-title>
+          <mat-panel-description>Edição e Exclusão</mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="row footer-btn">
+          <div class="button-row col s12">
+            <button mat-raised-button color="green" (click)="salvar()">Salvar</button>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

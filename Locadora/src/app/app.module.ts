@@ -15,12 +15,14 @@ import {MatSelectModule} from '@angular/material/select';
 import { DatePipe } from '@angular/common';
 import { LocadoraComponent } from './cadastros/locadora/locadora.component';
 import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.component';
+import { DialogComponent } from './shared/dialog/dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LocadoraComponent,
-    LocadoraListComponent
+    LocadoraListComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,9 @@ import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.c
   
   ],
   providers: [HttpClient, DatePipe],
+  entryComponents: [
+    DialogComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
