@@ -28,7 +28,7 @@ export class LocadoraListComponent implements OnInit {
   displayedColumnsModelo: string[] = ['actionsColumn', 'idModelo', 'descricao'];
   public dataSourceModelo: any;
 
-  displayedColumnsVeiculo: string[] = ['actionsColumn', 'idVeiculo', 'descricao', 'cor', 'placa', 'ano', 'preco', 'alugado', 'idModelo'];
+  displayedColumnsVeiculo: string[] = ['actionsColumn', 'idVeiculo', 'descricao', 'cor', 'placa', 'ano', 'preco', 'alugado'];
   public dataSourceVeiculo: any;
 
   constructor(private clienteService: ClienteService,

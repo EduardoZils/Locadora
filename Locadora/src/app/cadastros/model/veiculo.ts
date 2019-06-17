@@ -8,5 +8,5 @@ export class Veiculo {
     anoVeiculo: number;
     precoVeiculo: Float32Array; //no banco é double
     alugado: boolean;
-    idModelo: Modelo;
+    idModelo: number;
 }
