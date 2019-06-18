@@ -196,7 +196,7 @@ export class LocadoraListComponent implements OnInit {
   }
 
   updateVeiculo(id: number) {
-    this.router.navigate(['../locadora-edit-marca/' + id]);
+    this.router.navigate(['../locadora-edit-veiculo/' + id]);
   }
 
   updateNewVeiculo() {

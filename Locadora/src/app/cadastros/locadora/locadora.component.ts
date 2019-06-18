@@ -29,6 +29,7 @@ export class LocadoraComponent implements OnInit {
   veiculoModel: Veiculo = new Veiculo();
   locacao: Locacao;
   locacaoModel: Locacao = new Locacao();
+  editVeiculo: boolean = false;
   edit: boolean = false;
 
   public dataSourceMarca: any;
@@ -63,7 +64,7 @@ export class LocadoraComponent implements OnInit {
 
 
   salvarVeiculo(){
-    if (this.edit) {
+    if (this.editVeiculo == true) {
       console.log("Atualiza Veiculo")
       console.log(this.veiculoModel)
       this.veiculoService.update(this.veiculoModel).subscribe(sucesso => {
