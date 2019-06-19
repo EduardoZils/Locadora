@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LocadoraComponent } from './cadastros/locadora/locadora.component';
+import { LocadoraComponent } from './cadastros/locadora-cliente/locadora.component';
 import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.component';
 
 const routes: Routes = [

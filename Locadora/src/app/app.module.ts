@@ -13,16 +13,22 @@ import { MatInputModule, MatRadioModule, MatButtonModule,
 
 import {MatSelectModule} from '@angular/material/select';
 import { DatePipe } from '@angular/common';
-import { LocadoraComponent } from './cadastros/locadora/locadora.component';
+import { LocadoraComponent } from './cadastros/locadora-cliente/locadora.component';
 import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.component';
 import { DialogComponent } from './shared/dialog/dialog.component';
+import { LocadoraMarcaComponent } from './cadastros/locadora-marca/locadora-marca.component';
+import { LocadoraModeloComponent } from './cadastros/locadora-modelo/locadora-modelo.component';
+import { LocadoraVeiculoComponent } from './cadastros/locadora-veiculo/locadora-veiculo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LocadoraComponent,
     LocadoraListComponent,
-    DialogComponent
+    DialogComponent,
+    LocadoraMarcaComponent,
+    LocadoraModeloComponent,
+    LocadoraVeiculoComponent
   ],
   imports: [
     BrowserModule,
