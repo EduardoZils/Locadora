@@ -1,3 +1,67 @@
-<p>
-  locadora-veiculo works!
-</p>
+<div class="row">
+  <div class="col s12 m2 l2">
+    <mat-form-field>
+      <input matInput type="number" placeholder="Código" [(ngModel)]="veiculoModel.idVeiculo" required />
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <div class="col s12 m2 l2">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Detalhes" [(ngModel)]="veiculoModel.dsVeiculo" required />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m2 l2">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Cor" [(ngModel)]="veiculoModel.corVeiculo" required />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m2 l2">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Placa" [(ngModel)]="veiculoModel.placaVeiculo" required />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m2 l2">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Ano" [(ngModel)]="veiculoModel.anoVeiculo" required />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m2 l2">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Preço" [(ngModel)]="veiculoModel.precoVeiculo" required />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m2 l2">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Alugado?" [(ngModel)]="veiculoModel.alugado" required />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="col s12 m4 l4">
+    <mat-form-field>
+      <mat-select placeholder="Modelo" [(ngModel)]="veiculoModel.idModelo">
+        <mat-option *ngFor="let modelo of this.modeloList" [value]="modelo.idModelo">
+          {{modelo.idModelo + " - " + modelo.dsModelo}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+
+</div>
+<div class="row footer-btn">
+  <!--BOTÃO SALVAR ESTADO-->
+  <div class="button-row col s12">
+    <button mat-raised-button color="green" (click)="salvarVeiculo()">Salvar</button>
+  </div>
+</div>

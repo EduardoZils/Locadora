@@ -197,11 +197,9 @@ export class LocadoraListComponent implements OnInit {
   }
 
   updateNewVeiculo() {
-    this.router.navigate(['../locadora']);
+    this.router.navigate(['../locadora-veiculo']);
   }
 
-
-   //Modelo
 
    listAllVeiculo() {
     this.modeloService.listAll().subscribe(sucesso => {

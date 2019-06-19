@@ -6,7 +6,7 @@ export class Veiculo {
     corVeiculo: string;
     placaVeiculo: string;
     anoVeiculo: number;
-    precoVeiculo: Float32Array; //no banco é double
+    precoVeiculo: number; //no banco é double
     alugado: boolean;
     idModelo: Modelo;
 }
