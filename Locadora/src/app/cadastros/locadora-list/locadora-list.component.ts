@@ -145,7 +145,7 @@ export class LocadoraListComponent implements OnInit {
   }
 
   updateNewMarca() {
-    this.router.navigate(['../locadora']);
+    this.router.navigate(['../locadora-marca']);
   }
 
   //Modelo

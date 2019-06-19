@@ -1,3 +1,19 @@
-<p>
-  locadora-marca works!
-</p>
+<div class="row">
+  <div class="col s12 m2 l2">
+    <mat-form-field>
+      <input matInput type="number" placeholder="Código" [(ngModel)]="marcaModel.idMarca" required />
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <div class="col s12 m2 l2">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Descrição" [(ngModel)]="marcaModel.dsMarca" required />
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div class="row footer-btn">
+  <div class="button-row col s12">
+    <button mat-raised-button color="green" (click)="salvarMarca()">Salvar</button>
+  </div>
+</div>
