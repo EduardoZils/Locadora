@@ -6,10 +6,6 @@ import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.c
 const routes: Routes = [
   {path: 'locadora', component: LocadoraComponent},
   {path: 'locadora-edit-cliente/:id', component: LocadoraComponent},
-  {path: 'locadora-edit-marca/:id', component: LocadoraComponent},
-  {path: 'locadora-edit-modelo/:id', component: LocadoraComponent},
-  {path: 'locadora-edit-locadora/:id', component: LocadoraComponent},
-  {path: 'locadora-edit-veiculo/:id', component: LocadoraComponent},
   {path: 'locadora-list', component: LocadoraListComponent}
 ];
 

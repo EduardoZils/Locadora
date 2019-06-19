@@ -46,7 +46,6 @@ export class LocadoraListComponent implements OnInit {
     this.listAllMarca();
     this.listAllModelo();
     this.listAllVeiculo();
-
   }  
 
   listAllCliente() {
@@ -70,7 +69,7 @@ export class LocadoraListComponent implements OnInit {
     this.clienteService.delete(id).subscribe(sucesso => {
       if (sucesso != null)
         console.log(sucesso);
-      this.listAllCliente(); //Não usa-se o atualizaTable() porque o mesmo irá tentar buscar um código que ja foi deletado do banco 
+      this.listAllCliente(); 
     },
       error => {
         console.log(error);
@@ -98,8 +97,6 @@ export class LocadoraListComponent implements OnInit {
   updateNewCliente() {
     this.router.navigate(['../locadora']);
   }
-
-  //Marca
 
   listAllMarca() {
     this.marcaService.listAll().subscribe(sucesso => {

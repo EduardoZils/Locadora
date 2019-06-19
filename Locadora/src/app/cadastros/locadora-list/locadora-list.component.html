@@ -6,6 +6,12 @@
           <mat-panel-title>Lista de Cliente</mat-panel-title>
           <mat-panel-description>Edição e Exclusão</mat-panel-description>
         </mat-expansion-panel-header>
+
+
+        <button mat-icon-button>
+          <mat-icon (click)="updateNewCliente()">add_circle_outline</mat-icon>
+        </button>
+
         <!--Tabela-->
         <div class="row">
           <div class="col s12 m12 l12">
@@ -19,7 +25,7 @@
                       delete</mat-icon>
                   </button>
                   <button mat-icon-button>
-                    <mat-icon class="link_action" matTooltip="edit" (click)="update(element.idCliente)">edit
+                    <mat-icon class="link_action" matTooltip="edit" (click)="updateCliente(element.idCliente)">edit
                     </mat-icon>
                   </button>
                 </mat-cell>
