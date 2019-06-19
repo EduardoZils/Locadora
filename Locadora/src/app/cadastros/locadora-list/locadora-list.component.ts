@@ -246,11 +246,11 @@ export class LocadoraListComponent implements OnInit {
   }
 
   updateModelo(id: number) {
-    this.router.navigate(['../locadora-edit-marca/' + id]);
+    this.router.navigate(['../locadora-edit-modelo/' + id]);
   }
 
   updateNewModelo() {
-    this.router.navigate(['../locadora']);
+    this.router.navigate(['../locadora-modelo']);
   }
 
 
