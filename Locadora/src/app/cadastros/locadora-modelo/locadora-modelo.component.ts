@@ -86,13 +86,4 @@ export class LocadoraModeloComponent implements OnInit {
       console.log(error);
     });
   }
-
-  atualizarModeloSelect(){
-    this.modeloService.listAll().subscribe(sucesso => {
-      this.modeloList = sucesso;
-  },
-  error => {
-    console.log(error);
-  });
-  }
 }
