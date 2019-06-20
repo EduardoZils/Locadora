@@ -12,7 +12,7 @@ namespace LocadoraAPI.Mappings
     {
         public void Configure(EntityTypeBuilder<Locacao> entity)
         {
-            entity.HasKey(e => new { e.IdLocacao, e.IdVeiculo, e.IdCliente });
+            entity.HasKey(e => new { e.IdLocacao });
 
             entity.ToTable("locacao");
 

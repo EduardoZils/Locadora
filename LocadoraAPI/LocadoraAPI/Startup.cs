@@ -41,7 +41,7 @@ namespace LocadoraAPI
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info { Title = "Título da API", Version = "v1" });
+                c.SwaggerDoc("v2", new Swashbuckle.AspNetCore.Swagger.Info { Title = "Título da API", Version = "v2" });
                 c.IncludeXmlComments(XmlCommentsFilePath);
             });
 
@@ -67,7 +67,7 @@ namespace LocadoraAPI
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
             // specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v2/swagger.json", "My API V2"); });
 
             app.UseCors(c =>
             {

@@ -82,4 +82,8 @@ export class LocadoraVeiculoComponent implements OnInit {
     );
   }
 
+  voltar(){
+    this.router.navigate(['../locadora-list']);
+  }
+
 }

@@ -72,4 +72,8 @@ export class LocadoraComponent implements OnInit {
         });
     }
   }
+  
+  voltar(){
+    this.router.navigate(['../locadora-list']);
+  }
 }

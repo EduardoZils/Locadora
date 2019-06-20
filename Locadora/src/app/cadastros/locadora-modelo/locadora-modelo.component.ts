@@ -86,4 +86,7 @@ export class LocadoraModeloComponent implements OnInit {
       console.log(error);
     });
   }
+  voltar(){
+    this.router.navigate(['../locadora-list']);
+  }
 }

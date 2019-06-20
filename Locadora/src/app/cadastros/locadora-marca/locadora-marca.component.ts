@@ -63,5 +63,9 @@ export class LocadoraMarcaComponent implements OnInit {
     }
   }
 
+  voltar(){
+    this.router.navigate(['../locadora-list']);
+  }
+
 
 }
