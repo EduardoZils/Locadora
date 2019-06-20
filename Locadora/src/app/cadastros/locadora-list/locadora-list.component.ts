@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ClienteService } from '../../shared/services/cliente.service';
-import { MarcaService } from '../../shared/services/marca.service';
-import { ModeloService } from '../../shared/services/modelo.service';
-import { VeiculoService } from '../../shared/services/veiculo.service';
+import { ClienteService } from '../locadora-cliente/cliente.service';
+import { MarcaService } from '../locadora-marca/marca.service';
+import { ModeloService } from '../locadora-modelo/modelo.service';
+import { VeiculoService } from '../locadora-veiculo/veiculo.service';
 import { Router } from '@angular/router';
 import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
 import { Cliente } from '../model/cliente';
@@ -28,7 +28,7 @@ export class LocadoraListComponent implements OnInit {
   displayedColumnsModelo: string[] = ['actionsColumn', 'idModelo', 'descricao'];
   public dataSourceModelo: any;
 
-  displayedColumnsVeiculo: string[] = ['actionsColumn', 'idVeiculo', 'descricao', 'cor', 'placa', 'ano', 'preco', 'alugado'];
+  displayedColumnsVeiculo: string[] = ['actionsColumn', 'idVeiculo', 'descricao', 'cor', 'placa', 'ano', 'precoVeiculo', 'alugado'];
   public dataSourceVeiculo: any;
 
   constructor(private clienteService: ClienteService,

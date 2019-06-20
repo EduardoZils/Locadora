@@ -4,10 +4,7 @@ import { Marca } from '../model/marca'
 import { Modelo } from '../model/modelo'
 import { Veiculo } from '../model/veiculo'
 import { Locacao } from '../model/locacao'
-import { ClienteService } from '../../shared/services/cliente.service'
-import { MarcaService } from '../../shared/services/marca.service'
-import { ModeloService } from '../../shared/services/modelo.service'
-import { VeiculoService } from '../../shared/services/veiculo.service'
+import { ClienteService } from '../locadora-cliente/cliente.service'
 import { LocacaoService } from '../../shared/services/locacao.service'
 import { ActivatedRoute, Router } from '@angular/router';
 

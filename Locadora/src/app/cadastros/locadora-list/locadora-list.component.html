@@ -6,13 +6,9 @@
           <mat-panel-title>Lista de Cliente</mat-panel-title>
           <mat-panel-description>Edição e Exclusão</mat-panel-description>
         </mat-expansion-panel-header>
-
-
         <button mat-icon-button>
           <mat-icon (click)="updateNewCliente()">add_circle_outline</mat-icon>
         </button>
-
-        <!--Tabela-->
         <div class="row">
           <div class="col s12 m12 l12">
             <mat-table #table [dataSource]="dataSourceCliente" matSort class="table-striped">
@@ -30,31 +26,22 @@
                   </button>
                 </mat-cell>
               </ng-container>
-
-              <!-- Codigo -->
               <ng-container matColumnDef="nome">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.nmCliente}} </mat-cell>>
               </ng-container>
-
-              <!-- Name Column -->
               <ng-container matColumnDef="cnh">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> CNH </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.cnh}} </mat-cell>
               </ng-container>
-
-              <!-- Weight Column -->
               <ng-container matColumnDef="endereco">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Endereço </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.endereco}} </mat-cell>
               </ng-container>
-
-              <!-- Symbol Column -->
               <ng-container matColumnDef="telefone">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Telefone </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.telefone}} </mat-cell>
               </ng-container>
-
               <mat-header-row *matHeaderRowDef="displayedColumnsCliente"></mat-header-row>
               <mat-row *matRowDef="let row; columns: displayedColumnsCliente;"></mat-row>
             </mat-table>
@@ -62,7 +49,6 @@
             </mat-paginator>
           </div>
         </div>
-
         <div class="row footer-btn">
           <div class="button-row col s12">
             <button mat-raised-button color="green" (click)="salvar()">Salvar</button>
@@ -72,8 +58,6 @@
     </mat-accordion>
   </div>
 </div>
-
-<!--MARCA-->
 <div class="row">
   <div class="col s12">
     <mat-accordion>
@@ -82,7 +66,6 @@
           <mat-panel-title>Lista de Marca</mat-panel-title>
           <mat-panel-description>Edição e Exclusão</mat-panel-description>
         </mat-expansion-panel-header>
-
         <div class="row">
           <div class="col s12 m12 l12">
             <mat-table #table [dataSource]="dataSourceMarca" matSort class="table-striped">
@@ -100,18 +83,14 @@
                   </button>
                 </mat-cell>
               </ng-container>
-              <!-- Codigo -->
               <ng-container matColumnDef="idMarca">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Código</mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.idMarca}} </mat-cell>>
               </ng-container>
-
-              <!-- Name Column -->
               <ng-container matColumnDef="descricao">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Descrição </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.dsMarca}} </mat-cell>
               </ng-container>
-
               <mat-header-row *matHeaderRowDef="displayedColumnsMarca"></mat-header-row>
               <mat-row *matRowDef="let row; columns: displayedColumnsMarca;"></mat-row>
             </mat-table>
@@ -119,7 +98,6 @@
             </mat-paginator>
           </div>
         </div>
-
         <div class="row footer-btn">
           <div class="button-row col s12">
             <button mat-raised-button color="green" (click)="salvar()">Salvar</button>
@@ -129,7 +107,6 @@
     </mat-accordion>
   </div>
 </div>
-
 <div class="row">
   <div class="col s12">
     <mat-accordion>
@@ -138,8 +115,6 @@
           <mat-panel-title>Lista de Modelo</mat-panel-title>
           <mat-panel-description>Edição e Exclusão</mat-panel-description>
         </mat-expansion-panel-header>
-
-
         <div class="row">
           <div class="col s12 m12 l12">
             <mat-table #table [dataSource]="dataSourceModelo" matSort class="table-striped">
@@ -157,18 +132,14 @@
                   </button>
                 </mat-cell>
               </ng-container>
-              <!-- Codigo -->
               <ng-container matColumnDef="idModelo">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Código</mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.idModelo}} </mat-cell>>
               </ng-container>
-
-              <!-- Name Column -->
               <ng-container matColumnDef="descricao">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Descrição </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.dsModelo}} </mat-cell>
               </ng-container>
-
               <mat-header-row *matHeaderRowDef="displayedColumnsModelo"></mat-header-row>
               <mat-row *matRowDef="let row; columns: displayedColumnsModelo;"></mat-row>
             </mat-table>
@@ -176,7 +147,6 @@
             </mat-paginator>
           </div>
         </div>
-
         <div class="row footer-btn">
           <div class="button-row col s12">
             <button mat-raised-button color="green" (click)="salvar()">Salvar</button>
@@ -186,7 +156,6 @@
     </mat-accordion>
   </div>
 </div>
-
 <div class="row">
   <div class="col s12">
     <mat-accordion>
@@ -195,7 +164,6 @@
           <mat-panel-title>Lista de Veiculo</mat-panel-title>
           <mat-panel-description>Edição e Exclusão</mat-panel-description>
         </mat-expansion-panel-header>
-
         <div class="row">
           <div class="col s12 m12 l12">
             <mat-table #table [dataSource]="dataSourceVeiculo" matSort class="table-striped">
@@ -213,49 +181,34 @@
                   </button>
                 </mat-cell>
               </ng-container>
-
-              <!-- Codigo -->
               <ng-container matColumnDef="idVeiculo">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Codigo </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.idVeiculo}} </mat-cell>>
               </ng-container>
-
-              <!-- Name Column -->
               <ng-container matColumnDef="descricao">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Descrição </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.dsVeiculo}} </mat-cell>
               </ng-container>
-
-              <!-- Weight Column -->
               <ng-container matColumnDef="cor">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Cor </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.corVeiculo}} </mat-cell>
               </ng-container>
-
-              <!-- Symbol Column -->
               <ng-container matColumnDef="placa">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Placa </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.placaVeiculo}} </mat-cell>
               </ng-container>
-
-              <!-- Symbol Column -->
               <ng-container matColumnDef="ano">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Ano </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.anoVeiculo}} </mat-cell>
               </ng-container>
-
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="preco">
+              <ng-container matColumnDef="precoVeiculo">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Preço </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.precoVeiculoe}} </mat-cell>
+                <mat-cell *matCellDef="let element"> {{element.precoVeiculo}} </mat-cell>
               </ng-container>
-
-              <!-- Symbol Column -->
               <ng-container matColumnDef="alugado">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Alugado </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.alugado}} </mat-cell>
               </ng-container>
-
               <mat-header-row *matHeaderRowDef="displayedColumnsVeiculo"></mat-header-row>
               <mat-row *matRowDef="let row; columns: displayedColumnsVeiculo;"></mat-row>
             </mat-table>
@@ -263,8 +216,6 @@
             </mat-paginator>
           </div>
         </div>
-
-
         <div class="row footer-btn">
           <div class="button-row col s12">
             <button mat-raised-button color="green" (click)="salvar()">Salvar</button>

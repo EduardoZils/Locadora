@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BaseService } from '../base.service';
+import { BaseService } from '../../shared/base.service';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { Veiculo } from 'src/app/cadastros/model/veiculo';
+import { environment } from '../../../environments/environment';
+import { Veiculo } from '../model/veiculo';
 
-@Injectable({
+
+@Injectable({ 
   providedIn: 'root'
 })
 export class VeiculoService extends BaseService {

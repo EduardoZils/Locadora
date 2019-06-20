@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MarcaService } from '../../shared/services/marca.service';
+import { MarcaService } from '../locadora-marca/marca.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Marca } from '../model/marca';
 

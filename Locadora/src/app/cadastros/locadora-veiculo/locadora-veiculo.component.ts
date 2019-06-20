@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Veiculo } from '../model/veiculo';
-import { VeiculoService } from '../../shared/services/veiculo.service';
-import { ModeloService } from '../../shared/services/modelo.service';
+import { VeiculoService } from '../locadora-veiculo/veiculo.service';
+import { ModeloService } from '../locadora-modelo/modelo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Modelo } from '../model/modelo';
 

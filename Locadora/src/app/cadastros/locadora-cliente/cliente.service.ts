@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Cliente } from '../../cadastros/model/cliente';
 import { environment } from "../../../environments/environment";
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs-compat';
 import { HttpClient } from '@angular/common/http';
-import { BaseService } from '../base.service';
+import { BaseService } from '../../shared/base.service'; 
+
 
 @Injectable({
   providedIn: 'root'

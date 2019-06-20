@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Marca } from '../model/marca';
 import { Modelo } from '../model/modelo';
-import { ModeloService } from '../../shared/services/modelo.service';
+import { ModeloService } from '../locadora-modelo/modelo.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MarcaService } from '../../shared/services/marca.service';
+import { MarcaService } from '../locadora-marca/marca.service';
 
 @Component({
   selector: 'app-locadora-modelo',
