@@ -254,11 +254,13 @@
             </mat-form-field>
           </div>
           <div class="row">
-            <div class="col s12 m2 l2">
-              <mat-form-field>
-                <input matInput type="number" placeholder="Veiculo" [(ngModel)]="locacaoModel.idVeiculo" required />
-              </mat-form-field>
-            </div>
+            <mat-form-field>
+              <mat-select placeholder="idVeiculo" [(ngModel)]="locacaoModel.idVeiculo">
+                <mat-option *ngFor="let veiculo of this.veiculoList" [value]="veiculo.idVeiculo">
+                  {{veiculo.idVeiculo}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
           <div class="row">
             <div class="col s12 m2 l2">
@@ -329,11 +331,11 @@
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Codigo </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.idLocacao}} </mat-cell>>
               </ng-container>
-              <ng-container matColumnDef="veiculo">
+              <ng-container matColumnDef="idVeiculo">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Veiculo </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.idVeiculo}} </mat-cell>
               </ng-container>
-              <ng-container matColumnDef="cliente">
+              <ng-container matColumnDef="idCliente">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Cliente </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.idCliente}} </mat-cell>
               </ng-container>

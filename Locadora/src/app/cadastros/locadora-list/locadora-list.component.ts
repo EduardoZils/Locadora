@@ -34,12 +34,18 @@ export class LocadoraListComponent implements OnInit {
   displayedColumnsVeiculo: string[] = ['actionsColumn', 'idVeiculo', 'descricao', 'cor', 'placa', 'ano', 'precoVeiculo', 'alugado'];
   public dataSourceVeiculo: any;
 
-  displayedColumnsLocacao: string[] = ['actionsColumn', 'idLocacao', 'veiculo', 'cliente', 'dtLocacao', 'dtDevolucao', 'pagamento'];
+  displayedColumnsLocacao: string[] = ['actionsColumn', 'idLocacao', 'dtLocacao', 'dtDevolucao', 'pagamento', 'idCliente', 'idVeiculo'];
   public dataSourceLocacao: any;
   
   locacao: Locacao;
   locacaoModel: Locacao = new Locacao()
   editLocacao: boolean = false;
+
+  public veiculoSel: Veiculo = new Veiculo();
+  public veiculoSelId: number;
+  public veiculoList: Array<Veiculo>;
+
+  public clienteList: Array<Cliente>;
 
 
   constructor(private clienteService: ClienteService,
@@ -60,6 +66,7 @@ export class LocadoraListComponent implements OnInit {
     this.listAllModelo();
     this.listAllVeiculo();
     this.listAllLocacao();
+    this.veiculoList = new Array<Veiculo>();
   }  
 
   listAllCliente() {
@@ -336,6 +343,24 @@ export class LocadoraListComponent implements OnInit {
 
   update(locacao: Locacao){
     this.locacaoModel = locacao;
+  }
+
+  atualizarVeiculoSelect() {
+    this.veiculoService.listAll().subscribe(sucesso => {
+        this.veiculoList = sucesso;
+    },
+    error => {
+      console.log(error);
+    });
+  }
+
+  atualizarClienteSelect() {
+    this.clienteService.listAll().subscribe(sucesso => {
+        this.clienteList = sucesso;
+    },
+    error => {
+      console.log(error);
+    });
   }
 
 
