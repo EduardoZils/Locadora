@@ -215,10 +215,6 @@
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Preço </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.precoVeiculo}} </mat-cell>
               </ng-container>
-              <ng-container matColumnDef="alugado">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Alugado </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.alugado}} </mat-cell>
-              </ng-container>
               <mat-header-row *matHeaderRowDef="displayedColumnsVeiculo"></mat-header-row>
               <mat-row *matRowDef="let row; columns: displayedColumnsVeiculo;"></mat-row>
             </mat-table>
@@ -248,61 +244,55 @@
         </mat-expansion-panel-header>
 
         <div class="row">
-          <div class="col s12 m2 l2">
+          <div class="col s12 m12 l12">
             <mat-form-field>
               <input matInput type="number" placeholder="Código" [(ngModel)]="locacaoModel.idLocacao" required />
             </mat-form-field>
           </div>
-          <div class="row">
+        </div>
+      
+        
+          
+        <div class="row">
+          <div class="col s12 m12 l12">
             <mat-form-field>
-              <mat-select placeholder="idVeiculo" [(ngModel)]="locacaoModel.idVeiculo">
-                <mat-option *ngFor="let veiculo of this.veiculoList" [value]="veiculo.idVeiculo">
+              <mat-select placeholder="Modelo" [(ngModel)]="locacaoModel.idVeiculo">
+                <mat-option *ngFor="let veiculo of this.veiculoList" [value]="veiculo.idVeiculo" (SelectionChange)="atualizarVeiculoSelect()">
                   {{veiculo.idVeiculo}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
           </div>
-          <div class="row">
-            <div class="col s12 m2 l2">
-              <mat-form-field>
-                <input matInput type="number" placeholder="Cliente" [(ngModel)]="locacaoModel.idCliente" required />
-              </mat-form-field>
-            </div>
+        </div>
+          
+        <div class="row">
+          <div class="col s12 m12 l12">
+            <mat-form-field>
+              <mat-select placeholder="Cliente" [(ngModel)]="locacaoModel.idCliente">
+                <mat-option *ngFor="let cliente of this.clienteList" [value]="cliente.idCliente" (SelectionChange)="atualizarClienteSelect()">
+                  {{cliente.idCliente + " - " + cliente.nmCliente}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
-        
+          </div>
+
           <div class="row">
-            <div class="col s12 m2 l2">
+            <div class="col s12 m12 l12">
               <mat-form-field>
                 <input matInput type="date" placeholder="Data de Locação" [(ngModel)]="locacaoModel.dtLocacao" required />
               </mat-form-field>
             </div>
           </div>
           <div class="row">
-            <div class="col s12 m2 l2">
+            <div class="col s12 m12 l12">
               <mat-form-field>
                 <input matInput type="date" placeholder="Data de Devolução" [(ngModel)]="locacaoModel.dtDevolucao" required />
               </mat-form-field>
             </div>
           </div>
-          <div class="row">
-            <div class="col s12 m2 l2">
-              <mat-form-field>
-                <input matInput type="text" placeholder="Pagamento" [(ngModel)]="locacaoModel.pagamento" required />
-              </mat-form-field>
-            </div>
-          </div>
-          <!--
-          <div class="col s12 m4 l4">
-            <mat-form-field>
-              <mat-select placeholder="Modelo" [(ngModel)]="veiculoModel.idModelo">
-                <mat-option *ngFor="let modelo of this.modeloList" [value]="modelo.idModelo">
-                  {{modelo.idModelo + " - " + modelo.dsModelo}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          -->
-        </div>
+        
+
         <div class="row footer-btn">
           <div class="button-row col s12">
             <button mat-raised-button color="green" (click)="salvarLocacao()">Salvar</button>
@@ -331,13 +321,13 @@
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Codigo </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.idLocacao}} </mat-cell>>
               </ng-container>
-              <ng-container matColumnDef="idVeiculo">
+              <ng-container matColumnDef="veiculo">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Veiculo </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.idVeiculo}} </mat-cell>
               </ng-container>
-              <ng-container matColumnDef="idCliente">
+              <ng-container matColumnDef="cliente">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Cliente </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.idCliente}} </mat-cell>
+                <mat-cell *matCellDef="let element"> {{element.cliente?.nmCliente}} </mat-cell>
               </ng-container>
               <ng-container matColumnDef="dtLocacao">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Data Locação </mat-header-cell>
@@ -350,10 +340,6 @@
                 <mat-cell *matCellDef="let element"> 
                     {{datePipe.transform(element.dtDevolucao,'dd/MM/yyyy')}}
                 </mat-cell>
-              </ng-container>
-              <ng-container matColumnDef="pagamento">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Pagamento </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.pagamento}} </mat-cell>
               </ng-container>
               <mat-header-row *matHeaderRowDef="displayedColumnsLocacao"></mat-header-row>
               <mat-row *matRowDef="let row; columns: displayedColumnsLocacao;"></mat-row>

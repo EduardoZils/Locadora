@@ -45,17 +45,22 @@ export class LocadoraMarcaComponent implements OnInit {
       console.log("Atualiza Marca")
       console.log(this.marcaModel)
       this.marcaService.update(this.marcaModel).subscribe(sucesso => {
-        if (sucesso != null)
+        if (sucesso != null) {
           console.log("sucesso");
-        this.marcaModel = sucesso;
+          this.marcaModel = sucesso;
+          this.router.navigate(['../locadora-list']);
+        }
       },
         error => {
           console.log(error);
         });
     } else {
       this.marcaService.save(this.marcaModel).subscribe(sucesso => {
-        if (sucesso != null)
+        if (sucesso != null) {
           console.log(sucesso);
+          this.router.navigate(['../locadora-list']);
+        }
+
       },
         error => {
           console.log(error);
@@ -63,7 +68,7 @@ export class LocadoraMarcaComponent implements OnInit {
     }
   }
 
-  voltar(){
+  voltar() {
     this.router.navigate(['../locadora-list']);
   }
 

@@ -16,7 +16,7 @@ export class LocadoraModeloComponent implements OnInit {
   public marcaSel: Marca = new Marca();
   public marcaSelId: number;
   public marcaList: Array<Marca>;
-  
+
 
   public modeloList: Array<Modelo>;
 
@@ -48,8 +48,10 @@ export class LocadoraModeloComponent implements OnInit {
       console.log("Atualiza Modelo")
       console.log(this.modeloModel)
       this.modeloService.update(this.modeloModel).subscribe(sucesso => {
-        if (sucesso != null)
+        if (sucesso != null) {
           console.log("sucesso");
+          this.router.navigate(['../locadora-list']);
+        }
       },
         error => {
           console.log(error);
@@ -58,8 +60,10 @@ export class LocadoraModeloComponent implements OnInit {
       console.log("salvar Modelo")
       console.log(this.modeloModel)
       this.modeloService.save(this.modeloModel).subscribe(sucesso => {
-        if (sucesso != null)
+        if (sucesso != null) {
           console.log(sucesso);
+          this.router.navigate(['../locadora-list']);
+        }
       },
         error => {
           console.log(error);
@@ -80,13 +84,13 @@ export class LocadoraModeloComponent implements OnInit {
 
   atualizarMarcaSelect() {
     this.marcaService.listAll().subscribe(sucesso => {
-        this.marcaList = sucesso;
+      this.marcaList = sucesso;
     },
-    error => {
-      console.log(error);
-    });
+      error => {
+        console.log(error);
+      });
   }
-  voltar(){
+  voltar() {
     this.router.navigate(['../locadora-list']);
   }
 }

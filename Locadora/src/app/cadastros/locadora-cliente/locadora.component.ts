@@ -54,8 +54,10 @@ export class LocadoraComponent implements OnInit {
       console.log("Atualiza Cliente")
       console.log(this.clienteModel)
       this.clienteService.edit(this.clienteModel).subscribe(sucesso => {
-        if (sucesso != null)
+        if (sucesso != null){
           console.log("sucesso");
+          this.router.navigate(['../locadora-list']);
+        }
       },
         error => {
           console.log(error);
@@ -64,8 +66,10 @@ export class LocadoraComponent implements OnInit {
       console.log("salvar Cliente")
       console.log(this.clienteModel)
       this.clienteService.save(this.clienteModel).subscribe(sucesso => {
-        if (sucesso != null)
+        if (sucesso != null){
           console.log("sucesso");
+          this.router.navigate(['../locadora-list']);
+        }
       },
         error => {
           console.log(error);

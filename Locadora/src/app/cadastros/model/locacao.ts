@@ -10,4 +10,5 @@ export class Locacao {
     pagamento: boolean;
     cliente: Cliente;
     veiculo: Veiculo;
+    
 }

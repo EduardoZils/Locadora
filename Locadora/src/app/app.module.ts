@@ -13,6 +13,7 @@ import { MatInputModule, MatRadioModule, MatButtonModule,
 
 import {MatSelectModule} from '@angular/material/select';
 import { DatePipe } from '@angular/common';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { LocadoraComponent } from './cadastros/locadora-cliente/locadora.component';
 import { LocadoraListComponent } from './cadastros/locadora-list/locadora-list.component';
 import { DialogComponent } from './shared/dialog/dialog.component';
@@ -47,7 +48,8 @@ import { LocadoraVeiculoComponent } from './cadastros/locadora-veiculo/locadora-
     MatSortModule,
     MatExpansionModule,
     MatSelectModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxSpinnerModule
   
   ],
   providers: [HttpClient, DatePipe],

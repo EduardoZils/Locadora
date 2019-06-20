@@ -41,9 +41,11 @@ export class LocadoraVeiculoComponent implements OnInit {
       console.log("Atualiza Veiculo")
       console.log(this.veiculoModel)
       this.veiculoService.update(this.veiculoModel).subscribe(sucesso => {
-        if (sucesso != null)
+        if (sucesso != null) {
           console.log("sucesso");
-        this.veiculoModel = sucesso;
+          this.veiculoModel = sucesso;
+          this.router.navigate(['../locadora-list']);
+        }
       },
         error => {
           console.log(error);
@@ -52,9 +54,11 @@ export class LocadoraVeiculoComponent implements OnInit {
       console.log("salvar Veiculo")
       console.log(this.veiculoModel)
       this.veiculoService.save(this.veiculoModel).subscribe(sucesso => {
-        if (sucesso != null)
+        if (sucesso != null) {
           console.log("sucesso");
-        this.veiculoModel = sucesso;
+          this.veiculoModel = sucesso;
+          this.router.navigate(['../locadora-list']);
+        }
       },
         error => {
           console.log(error);
@@ -82,7 +86,7 @@ export class LocadoraVeiculoComponent implements OnInit {
     );
   }
 
-  voltar(){
+  voltar() {
     this.router.navigate(['../locadora-list']);
   }
 
