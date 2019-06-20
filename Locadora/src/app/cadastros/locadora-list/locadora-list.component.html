@@ -338,12 +338,16 @@
                 <mat-cell *matCellDef="let element"> {{element.idCliente}} </mat-cell>
               </ng-container>
               <ng-container matColumnDef="dtLocacao">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Locação </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.dtLocacao}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Data Locação </mat-header-cell>
+                <mat-cell *matCellDef="let element"> 
+                    {{datePipe.transform(element.dtLocacao,'dd/MM/yyyy')}}
+                </mat-cell>
               </ng-container>
               <ng-container matColumnDef="dtDevolucao">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Devolução </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.dtDevolucao}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Data Devolução </mat-header-cell>
+                <mat-cell *matCellDef="let element"> 
+                    {{datePipe.transform(element.dtDevolucao,'dd/MM/yyyy')}}
+                </mat-cell>
               </ng-container>
               <ng-container matColumnDef="pagamento">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Pagamento </mat-header-cell>

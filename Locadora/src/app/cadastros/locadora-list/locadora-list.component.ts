@@ -13,6 +13,7 @@ import { Modelo } from '../model/modelo';
 import { Veiculo } from '../model/veiculo';
 import { Locacao } from '../model/locacao';
 import { LocacaoService } from '../../shared/services/locacao.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-locadora-list',
@@ -47,7 +48,8 @@ export class LocadoraListComponent implements OnInit {
     private veiculoService: VeiculoService,
     private locacaoService: LocacaoService,
     private router: Router,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private datePipe: DatePipe) { }
 
     @ViewChild(MatPaginator) paginatorCustom: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
