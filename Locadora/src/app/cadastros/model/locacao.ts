@@ -1,3 +1,6 @@
+import { Veiculo } from "./veiculo";
+import { Cliente } from "./cliente";
+
 export class Locacao {
     idLocacao: number;
     idVeiculo: number;
@@ -5,4 +8,6 @@ export class Locacao {
     dtLocacao: Date;
     dtDevolucao: Date;
     pagamento: boolean;
+    cliente: Cliente;
+    veiculo: Veiculo;
 }

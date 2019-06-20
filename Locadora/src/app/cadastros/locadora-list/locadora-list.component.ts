@@ -11,6 +11,8 @@ import { DialogComponent } from '../../shared/dialog/dialog.component';
 import { Marca } from '../model/marca';
 import { Modelo } from '../model/modelo';
 import { Veiculo } from '../model/veiculo';
+import { Locacao } from '../model/locacao';
+import { LocacaoService } from '../../shared/services/locacao.service';
 
 @Component({
   selector: 'app-locadora-list',
@@ -31,10 +33,19 @@ export class LocadoraListComponent implements OnInit {
   displayedColumnsVeiculo: string[] = ['actionsColumn', 'idVeiculo', 'descricao', 'cor', 'placa', 'ano', 'precoVeiculo', 'alugado'];
   public dataSourceVeiculo: any;
 
+  displayedColumnsLocacao: string[] = ['actionsColumn', 'idLocacao', 'veiculo', 'cliente', 'dtLocacao', 'dtDevolucao', 'pagamento'];
+  public dataSourceLocacao: any;
+  
+  locacao: Locacao;
+  locacaoModel: Locacao = new Locacao()
+  editLocacao: boolean = false;
+
+
   constructor(private clienteService: ClienteService,
     private marcaService: MarcaService,
     private modeloService: ModeloService,
     private veiculoService: VeiculoService,
+    private locacaoService: LocacaoService,
     private router: Router,
     private dialog: MatDialog) { }
 
@@ -46,6 +57,7 @@ export class LocadoraListComponent implements OnInit {
     this.listAllMarca();
     this.listAllModelo();
     this.listAllVeiculo();
+    this.listAllLocacao();
   }  
 
   listAllCliente() {
@@ -250,6 +262,81 @@ export class LocadoraListComponent implements OnInit {
   updateNewModelo() {
     this.router.navigate(['../locadora-modelo']);
   }
+
+  listAllLocacao(){
+    console.log(this.locacaoService.listAll().subscribe(sucesso => {
+      if (sucesso != null)
+      console.log(sucesso);
+      this.atualizaTableLocacao(sucesso);
+    },
+      error => {
+        console.log(error);
+      }));
+  }
+
+  atualizaTableLocacao(sucesso: any) {
+    this.dataSourceLocacao = new MatTableDataSource<Locacao>(sucesso);
+    this.dataSourceLocacao.paginator = this.paginatorCustom;
+    this.dataSourceLocacao.sort = this.sort;
+  }
+
+  deleteConfirmationLocacao(id: number) {
+    let dialogRef = this.dialog.open(DialogComponent, {
+      panelClass: 'custon-dialog',
+      data: 'Confirmar exclusão do registro?',
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(isConfirm => {
+      if (isConfirm)
+        this.deleteLocacao(id);
+    });
+
+  }
+
+  deleteLocacao(id: number) {
+    this.locacaoService.delete(id).subscribe(sucesso => {
+      if (sucesso != null)
+        console.log(sucesso);
+      this.listAllLocacao(); //Não usa-se o atualizaTable() porque o mesmo irá tentar buscar um código que ja foi deletado do banco 
+    },
+      error => {
+        console.log(error);
+      });
+  }
+
+  salvarLocacao() {
+    if (this.editLocacao == true) {
+      console.log("Atualiza Veiculo")
+      console.log(this.locacaoModel)
+      this.locacaoService.update(this.locacaoModel).subscribe(sucesso => {
+        if (sucesso != null)
+          console.log("sucesso");
+        this.locacaoModel = sucesso;
+      },
+        error => {
+          console.log(error);
+        });
+    } else {
+      console.log("salvar Veiculo")
+      console.log(this.locacaoModel)
+      this.locacaoService.save(this.locacaoModel).subscribe(sucesso => {
+        if (sucesso != null)
+          console.log("sucesso");
+        this.locacaoModel = sucesso;
+        this.listAllLocacao();
+      },
+        error => {
+          console.log(error);
+        });
+    }
+  }
+
+  update(locacao: Locacao){
+    this.locacaoModel = locacao;
+  }
+
+
 
 
 

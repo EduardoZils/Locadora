@@ -5,10 +5,11 @@
         <mat-expansion-panel-header>
           <mat-panel-title>Lista de Cliente</mat-panel-title>
           <mat-panel-description>Edição e Exclusão</mat-panel-description>
+          <button mat-icon-button>
+            <mat-icon (click)="updateNewCliente()">add_circle_outline</mat-icon>
+          </button>
         </mat-expansion-panel-header>
-        <button mat-icon-button>
-          <mat-icon (click)="updateNewCliente()">add_circle_outline</mat-icon>
-        </button>
+
         <div class="row">
           <div class="col s12 m12 l12">
             <mat-table #table [dataSource]="dataSourceCliente" matSort class="table-striped">
@@ -65,6 +66,9 @@
         <mat-expansion-panel-header>
           <mat-panel-title>Lista de Marca</mat-panel-title>
           <mat-panel-description>Edição e Exclusão</mat-panel-description>
+          <button mat-icon-button>
+            <mat-icon (click)="updateNewMarca()">add_circle_outline</mat-icon>
+          </button>
         </mat-expansion-panel-header>
         <div class="row">
           <div class="col s12 m12 l12">
@@ -114,6 +118,9 @@
         <mat-expansion-panel-header>
           <mat-panel-title>Lista de Modelo</mat-panel-title>
           <mat-panel-description>Edição e Exclusão</mat-panel-description>
+          <button mat-icon-button>
+            <mat-icon (click)="updateNewModelo()">add_circle_outline</mat-icon>
+          </button>
         </mat-expansion-panel-header>
         <div class="row">
           <div class="col s12 m12 l12">
@@ -163,6 +170,9 @@
         <mat-expansion-panel-header>
           <mat-panel-title>Lista de Veiculo</mat-panel-title>
           <mat-panel-description>Edição e Exclusão</mat-panel-description>
+          <button mat-icon-button>
+            <mat-icon (click)="updateNewVeiculo()">add_circle_outline</mat-icon>
+          </button>
         </mat-expansion-panel-header>
         <div class="row">
           <div class="col s12 m12 l12">
@@ -219,6 +229,136 @@
         <div class="row footer-btn">
           <div class="button-row col s12">
             <button mat-raised-button color="green" (click)="salvar()">Salvar</button>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col s12">
+    <mat-accordion>
+      <mat-expansion-panel name="panelLocadora">
+        <mat-expansion-panel-header>
+          <mat-panel-title></mat-panel-title>
+          <mat-panel-description>ALUGAR VEICULO</mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="row">
+          <div class="col s12 m2 l2">
+            <mat-form-field>
+              <input matInput type="number" placeholder="Código" [(ngModel)]="locacaoModel.idLocacao" required />
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <div class="col s12 m2 l2">
+              <mat-form-field>
+                <input matInput type="number" placeholder="Veiculo" [(ngModel)]="locacaoModel.idVeiculo" required />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12 m2 l2">
+              <mat-form-field>
+                <input matInput type="number" placeholder="Cliente" [(ngModel)]="locacaoModel.idCliente" required />
+              </mat-form-field>
+            </div>
+          </div>
+        
+          <div class="row">
+            <div class="col s12 m2 l2">
+              <mat-form-field>
+                <input matInput type="date" placeholder="Data de Locação" [(ngModel)]="locacaoModel.dtLocacao" required />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12 m2 l2">
+              <mat-form-field>
+                <input matInput type="date" placeholder="Data de Devolução" [(ngModel)]="locacaoModel.dtDevolucao" required />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12 m2 l2">
+              <mat-form-field>
+                <input matInput type="text" placeholder="Pagamento" [(ngModel)]="locacaoModel.pagamento" required />
+              </mat-form-field>
+            </div>
+          </div>
+          <!--
+          <div class="col s12 m4 l4">
+            <mat-form-field>
+              <mat-select placeholder="Modelo" [(ngModel)]="veiculoModel.idModelo">
+                <mat-option *ngFor="let modelo of this.modeloList" [value]="modelo.idModelo">
+                  {{modelo.idModelo + " - " + modelo.dsModelo}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          -->
+        </div>
+        <div class="row footer-btn">
+          <div class="button-row col s12">
+            <button mat-raised-button color="green" (click)="salvarLocacao()">Salvar</button>
+          </div>
+        </div>
+        
+
+        <div class="row">
+          <div class="col s12 m12 l12">
+            <mat-table #table [dataSource]="dataSourceLocacao" matSort class="table-striped">
+              <ng-container matColumnDef="actionsColumn">
+                <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <button mat-icon-button>
+                    <mat-icon class="link_action" matTooltip="Delete"
+                      (click)="deleteConfirmationLocacao(element.idLocacao)">
+                      delete</mat-icon>
+                  </button>
+                  <button mat-icon-button>
+                    <mat-icon class="link_action" matTooltip="edit" (click)="update(element)">edit
+                    </mat-icon>
+                  </button>
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="idLocacao">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Codigo </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.idLocacao}} </mat-cell>>
+              </ng-container>
+              <ng-container matColumnDef="veiculo">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Veiculo </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.idVeiculo}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="cliente">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Cliente </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.idCliente}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="dtLocacao">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Locação </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.dtLocacao}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="dtDevolucao">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Devolução </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.dtDevolucao}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="pagamento">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Pagamento </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.pagamento}} </mat-cell>
+              </ng-container>
+              <mat-header-row *matHeaderRowDef="displayedColumnsLocacao"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumnsLocacao;"></mat-row>
+            </mat-table>
+            <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+            </mat-paginator>
+          </div>
+        </div>
+        <div class="row footer-btn">
+          <div class="button-row col s12">
+            <button mat-raised-button color="green" (click)="salvarLocacao()">Salvar</button>
           </div>
         </div>
       </mat-expansion-panel>
