@@ -7,7 +7,6 @@ export class Locacao {
     idCliente: number;
     dtLocacao: Date;
     dtDevolucao: Date;
-    pagamento: boolean;
     cliente: Cliente;
     veiculo: Veiculo;
     

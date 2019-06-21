@@ -11,7 +11,6 @@ namespace LocadoraAPI.Models
         public int IdCliente { get; set; }
         public DateTime DtLocacao { get; set; }
         public DateTime DtDevolucao { get; set; }
-        public bool Pagamento { get; set; }
 
         [JsonIgnore]
         public Cliente Cliente { get; set; }

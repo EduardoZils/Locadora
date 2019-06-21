@@ -1,0 +1,118 @@
+
+CREATE SEQUENCE public.cliente_id_cliente_seq;
+
+CREATE TABLE public.cliente (
+                id_cliente INTEGER NOT NULL DEFAULT nextval('public.cliente_id_cliente_seq'),
+                nm_cliente VARCHAR NOT NULL,
+                cnh VARCHAR NOT NULL,
+                endereco VARCHAR,
+                telefone VARCHAR,
+                CONSTRAINT cliente_pk PRIMARY KEY (id_cliente)
+);
+
+
+ALTER SEQUENCE public.cliente_id_cliente_seq OWNED BY public.cliente.id_cliente;
+
+CREATE SEQUENCE public.marca_id_marca_seq_1;
+
+CREATE TABLE public.marca (
+                id_marca INTEGER NOT NULL DEFAULT nextval('public.marca_id_marca_seq_1'),
+                ds_marca VARCHAR NOT NULL,
+                CONSTRAINT marca_pk PRIMARY KEY (id_marca)
+);
+
+
+ALTER SEQUENCE public.marca_id_marca_seq_1 OWNED BY public.marca.id_marca;
+
+CREATE SEQUENCE public.modelo_id_modelo_seq_1_1;
+
+CREATE TABLE public.modelo (
+                id_modelo INTEGER NOT NULL DEFAULT nextval('public.modelo_id_modelo_seq_1_1'),
+                ds_modelo VARCHAR NOT NULL,
+                id_marca INTEGER NOT NULL,
+                CONSTRAINT modelo_pk PRIMARY KEY (id_modelo)
+);
+
+
+ALTER SEQUENCE public.modelo_id_modelo_seq_1_1 OWNED BY public.modelo.id_modelo;
+
+CREATE SEQUENCE public.veiculo_id_veiculo_seq;
+
+CREATE TABLE public.veiculo (
+                id_veiculo INTEGER NOT NULL DEFAULT nextval('public.veiculo_id_veiculo_seq'),
+                ds_veiculo VARCHAR NOT NULL,
+                cor_veiculo VARCHAR NOT NULL,
+                placa_veiculo VARCHAR NOT NULL,
+                ano_veiculo INTEGER NOT NULL,
+                preco_veiculo DOUBLE PRECISION NOT NULL,
+                alugado BOOLEAN,
+                id_modelo INTEGER NOT NULL,
+                CONSTRAINT veiculo_pk PRIMARY KEY (id_veiculo)
+);
+
+
+ALTER SEQUENCE public.veiculo_id_veiculo_seq OWNED BY public.veiculo.id_veiculo;
+
+CREATE SEQUENCE public.locacao_id_locacao_seq;
+
+CREATE TABLE public.locacao (
+                id_locacao INTEGER NOT NULL DEFAULT nextval('public.locacao_id_locacao_seq'),
+                dt_locacao DATE NOT NULL,
+                dt_devolucao DATE NOT NULL,
+                pagamento BOOLEAN,
+                id_cliente INTEGER NOT NULL,
+                id_veiculo INTEGER NOT NULL,
+                CONSTRAINT locacao_pk PRIMARY KEY (id_locacao)
+);
+
+
+ALTER SEQUENCE public.locacao_id_locacao_seq OWNED BY public.locacao.id_locacao;
+
+ALTER TABLE public.locacao ADD CONSTRAINT cliente_locacao_fk
+FOREIGN KEY (id_cliente)
+REFERENCES public.cliente (id_cliente)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
+ALTER TABLE public.modelo ADD CONSTRAINT marca_modelo_fk
+FOREIGN KEY (id_marca)
+REFERENCES public.marca (id_marca)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
+ALTER TABLE public.veiculo ADD CONSTRAINT modelo_veiculo_fk
+FOREIGN KEY (id_modelo)
+REFERENCES public.modelo (id_modelo)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
+ALTER TABLE public.locacao ADD CONSTRAINT veiculo_locacao_fk
+FOREIGN KEY (id_veiculo)
+REFERENCES public.veiculo (id_veiculo)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
+
+insert into marca(id_marca, ds_marca) 
+	values (1, 'Ford'),
+		   (2, 'Chevrolet');
+		   
+insert into modelo(id_modelo, ds_modelo, id_marca)
+	values (1, 'Fusion', 1),
+	 	   (2, 'Vectra', 2);
+		  
+insert into cliente(id_cliente, nm_cliente, cnh, endereco, telefone)
+	values (1, 'Laura Mora', 'AB', 'Rua da divisa, 114', '44 997344336');
+	
+insert into veiculo(id_veiculo, ds_veiculo, cor_veiculo, placa_veiculo,
+					ano_veiculo, preco_veiculo, id_modelo)
+	values (1, '4 Portas', 'Prata', 'FXR-4458', '2018', 25000, 1);
+	
+insert into locacao(id_locacao, dt_locacao, dt_devolucao, id_cliente, id_veiculo)
+	values (1, '02-08-2019', '02-09-2019', 1, 1);
+	
+	

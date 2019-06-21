@@ -32,7 +32,6 @@ namespace LocadoraAPI.Mappings
                 .HasColumnName("dt_locacao")
                 .HasColumnType("date");
 
-            entity.Property(e => e.Pagamento).HasColumnName("pagamento");
 
             entity.HasOne(d => d.Cliente)
                 .WithMany(p => p.Locacao)
